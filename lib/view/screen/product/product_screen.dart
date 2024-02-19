@@ -174,7 +174,9 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                   Expanded(
                       flex: 1,
-                      child: Container(child: Column()))
+                      child: Container(
+                          child: Column()
+                      ))
                 ],
               )
 
