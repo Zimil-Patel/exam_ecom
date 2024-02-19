@@ -1,3 +1,7 @@
+import 'dart:html';
+
+import 'package:exam_ecom/util/cart/cart_list.dart';
+import 'package:exam_ecom/view/screen/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../util/filter/product_data.dart';
@@ -32,7 +36,7 @@ class _ProductScreenState extends State<ProductScreen> {
                       Padding(
                         padding: const EdgeInsets.only(right: 10.0),
                         child: IconButton(onPressed: (){
-                          Navigator.pop(context);
+                          Navigator.popAndPushNamed(context, '/home');
                         },
                             icon: Icon(Icons.arrow_back)),
                       ),
@@ -62,7 +66,14 @@ class _ProductScreenState extends State<ProductScreen> {
                       const Spacer(),
 
                       IconButton(
-                          onPressed: (){},
+                          onPressed: (){
+
+                            totalAmt = getTotal();
+                            setState(() {
+                              Navigator.pushNamed(context, '/cart');
+                            });
+
+                          },
                           icon: Icon(Icons.shopping_cart)),
                       SizedBox(width: 40,),
                       IconButton(
@@ -79,6 +90,7 @@ class _ProductScreenState extends State<ProductScreen> {
               ),
 
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     flex: 2,
@@ -174,17 +186,302 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                   Expanded(
                       flex: 1,
-                      child: Container(
-                        alignment: Alignment.topLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 80.0, right: 80),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
 
-                              Text('Description'),
-                              Text('The Jordan Delta 2 offers a fresh, fearless take on the features you want: durability, comfort and an attitude that\'s Jordan to the core. We updated design lines and swapped out some components. The 2 still has that clashing combination of supportive and space age-like materials, with lots of different textures and heavy stitching to create a look that\'s both adventurous and iconic.')
-                            ],
-                            
-                          )
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 40.0),
+                              child: Row(
+                                children: [
+                                  Text('Description', style: TextStyle(fontWeight: FontWeight.w600),),
+                                  Spacer(),
+                                  Icon(Icons.keyboard_arrow_up)
+                                ],
+                              ),
+                            ),
+                            const Text('The Jordan Delta 2 offers a fresh, fearless take on\nthe features you want: durability, comfort and an\nattitude that\'s Jordan to the core. We updated\ndesign lines and swapped out some components.\nThe 2 still has that clashing combination of supportive and\nspace age-like materials, with lots of different textures and heavy stitching to create a look that\'s both adventurous and iconic.'),
+
+                            Container(
+                              height: 1,
+                              color: Colors.grey,
+                              width: double.infinity,
+                              margin: EdgeInsets.symmetric(vertical: 28),
+
+                            ),
+
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 20.0),
+                              child: Row(
+                                children: [
+                                  Text('Select size', style: TextStyle(fontWeight: FontWeight.w600),),
+                                ],
+                              ),
+                            ),
+
+
+                            Row(
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 40,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusDirectional.circular(8),
+                                      border: Border.all(color: Colors.grey),
+                                      color: Colors.white
+                                  ),
+                                  child: Text('35'),
+                                ),
+                              ],
+                            ),
+
+
+                            Padding(
+                              padding: const EdgeInsets.only(top: 100.0),
+                              child: Row(
+                                children: [
+                                  IconButton(
+                                      onPressed: (){
+
+                                        setState(() {
+                                          if(products[selIndex]['quantity'] > 1) products[selIndex]['quantity']--;
+                                        });
+
+                                      },
+                                      icon: const Icon(Icons.remove)),
+
+                                  Container(
+                                    alignment: Alignment.center,
+                                    height: 40,
+                                    width: 40,
+                                    margin: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadiusDirectional.circular(8),
+                                        border: Border.all(color: Colors.grey),
+                                        color: Colors.white
+                                    ),
+                                    child: Text('${products[selIndex]['quantity']}'),
+                                  ),
+
+
+                                  IconButton(
+                                      onPressed: (){
+                                        setState(() {
+                                          products[selIndex]['quantity']++;
+                                        });
+                                      },
+                                      icon: const Icon(Icons.add)),
+
+                                  Container(
+                                    height: 50,
+                                    width: 120,
+                                    alignment: Alignment.center,
+                                    margin: const EdgeInsets.only(left: 50),
+                                    decoration: const BoxDecoration(
+                                        color: Color(0xffD90429)
+                                    ),
+                                    child: InkWell(
+                                      onTap: (){
+                                        if(products[selIndex]['inCart'] == false){
+                                          if(products[selIndex]['quantity'] == 0)  products[selIndex]['quantity'] = 1;
+                                          products[selIndex]['inCart'] = true;
+                                          cartList.add(products[selIndex]);
+                                        }
+
+                                        setState(() {
+
+                                        });
+
+                                      },
+                                        child:  products[selIndex]['inCart'] ? Text('Added!', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),): Text('Add to cart', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),)
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+
+                        ),
                       ))
                 ],
               )

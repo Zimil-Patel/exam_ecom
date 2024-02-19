@@ -3,6 +3,7 @@ import 'package:exam_ecom/view/screen/product/product_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../util/home_product_list/homeShoeList.dart';
+import '../cart/cart_screen.dart';
 
 class FilterScreen extends StatefulWidget {
   const FilterScreen({super.key});
@@ -34,7 +35,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       Padding(
                         padding: const EdgeInsets.only(right: 10.0),
                         child: IconButton(onPressed: (){
-                          Navigator.pop(context);
+                          Navigator.popAndPushNamed(context, '/home');
                         },
                             icon: Icon(Icons.arrow_back)),
                       ),
@@ -65,7 +66,14 @@ class _FilterScreenState extends State<FilterScreen> {
                       const Spacer(),
 
                       IconButton(
-                          onPressed: (){},
+                          onPressed: (){
+
+                            totalAmt = getTotal();
+                            setState(() {
+                              Navigator.pushNamed(context, '/cart');
+                            });
+
+                          },
                           icon: Icon(Icons.shopping_cart)),
                       SizedBox(width: 40,),
                       IconButton(

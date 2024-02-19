@@ -1,6 +1,8 @@
 import 'package:exam_ecom/util/home_product_list/homeShoeList.dart';
 import 'package:flutter/material.dart';
 
+import '../cart/cart_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -55,7 +57,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     const Spacer(),
 
                     IconButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          totalAmt = getTotal();
+                          setState(() {
+                            Navigator.pushNamed(context, '/cart');
+                          });
+
+                        },
                         icon: Icon(Icons.shopping_cart)),
                     SizedBox(width: 40,),
                     IconButton(
