@@ -175,7 +175,16 @@ class _ProductScreenState extends State<ProductScreen> {
                   Expanded(
                       flex: 1,
                       child: Container(
-                          child: Column()
+                        alignment: Alignment.topLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+
+                              Text('Description'),
+                              Text('The Jordan Delta 2 offers a fresh, fearless take on the features you want: durability, comfort and an attitude that\'s Jordan to the core. We updated design lines and swapped out some components. The 2 still has that clashing combination of supportive and space age-like materials, with lots of different textures and heavy stitching to create a look that\'s both adventurous and iconic.')
+                            ],
+                            
+                          )
                       ))
                 ],
               )
