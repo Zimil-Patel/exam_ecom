@@ -64,7 +64,8 @@ List brands = [
   'Adiddas',
   'Superstar',
   'Suede',
-  'RS'
+  'RS',
+  'All'
 ];
 
 List size = [33,32,34,35,36,37,38,39,40,41,42,44,45];

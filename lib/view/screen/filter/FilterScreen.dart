@@ -1,4 +1,5 @@
 import 'package:exam_ecom/util/filter/product_data.dart';
+import 'package:exam_ecom/view/screen/product/product_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../util/home_product_list/homeShoeList.dart';
@@ -411,7 +412,18 @@ class _FilterScreenState extends State<FilterScreen> {
                     SingleChildScrollView(
                       child: Column(
                         children: [
-                          ...List.generate(products.length, (index) => addBox(index))
+                          ...List.generate(
+                              products.length,
+                                  (index) =>
+                              (selBrand == 'All') ?
+                              (products[index]['price'] >= range.start &&
+                                  products[index]['price'] <= range.end)
+                                  ? addBox(index) : Container()
+                                  : products[index]['brand'] == selBrand
+                                  ? (products[index]['price'] >= range.start &&
+                                  products[index]['price'] <= range.end)
+                                  ? addBox(index) : Container() : Container()
+                          )
                         ],
                       ),
                     )
@@ -428,45 +440,75 @@ class _FilterScreenState extends State<FilterScreen> {
   
   
   Widget brandsList(int index){
-    return  Row(
-      children: [
-        Icon(Icons.check_box_outline_blank_rounded),
-        SizedBox(width: 20,),
-        Text(brands[index])
-      ],
+    return  GestureDetector(
+      onTap: (){
+        selBrand = brands[index];
+        setState(() {
+
+        });
+      },
+      child: Container(
+        child: Row(
+          children: [
+            Icon(Icons.check_box_outline_blank_rounded),
+            SizedBox(width: 20,),
+            Text(brands[index])
+          ],
+        ),
+      ),
     );
   }
 
   Widget addBox(int index){
-    return Container(
-      height: 280,
-      width: 200,
-      margin: const EdgeInsets.all(16),
-      child: Column(
-        children: [
-          Container(
-            height: 200,
-            width: 200,
-            decoration: BoxDecoration(color: Colors.grey.withOpacity(0.2)),
-            child: ClipRRect(
-              child: Image.asset(products[index]['img']),
+    return GestureDetector(
+      onTap: (){
+        selIndex = index;
+        Navigator.pushNamed(context, '/product');
+      },
+      child: Container(
+        height: 250,
+        width: 500,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadiusDirectional.circular(25),
+        ),
+        margin: const EdgeInsets.all(16),
+        child: Row(
+          children: [
+
+
+            Container(
+              height: 200,
+              width: 200,
+              margin: EdgeInsets.only(left: 10),
+              decoration: BoxDecoration(color: Colors.grey.withOpacity(0.2)),
+              child: ClipRRect(
+                child: Image.asset(products[index]['img']),
+              ),
             ),
-          ),
-          Container(
-            alignment: Alignment.centerLeft,
-            height: 80,
-            width: 200,
-            decoration: BoxDecoration(color: Colors.white),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(products[index]['name'], style: TextStyle(fontWeight: FontWeight.bold),),
-                Text('${products[index]['price']}RWF')
-              ],
+
+
+            const SizedBox(width: 50,),
+
+
+            Container(
+              alignment: Alignment.center,
+              height: 80,
+              width: 200,
+              decoration: BoxDecoration(color: Colors.white),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(products[index]['name'], style: TextStyle(fontWeight: FontWeight.bold),),
+                  Text('${products[index]['price']}RWF')
+                ],
+              ),
             ),
-          ),
-        ],
+
+          ],
+        ),
       ),
     );
   }
