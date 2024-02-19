@@ -114,6 +114,59 @@ class _ProductScreenState extends State<ProductScreen> {
 
                                 ],
                               ),
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              height: 200,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.all(12),
+                                    height: 80,
+                                    width: 80,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.white
+                                    ),
+                                    child: ClipRRect(
+                                      child: Image.asset(products[selIndex]['img']),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.all(12),
+                                    height: 80,
+                                    width: 80,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.white
+                                    ),
+                                    child: ClipRRect(
+                                      child: Image.asset(products[selIndex]['img']),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.all(12),
+                                    height: 80,
+                                    width: 80,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.white
+                                    ),
+                                    child: ClipRRect(
+                                      child: Image.asset(products[selIndex]['img']),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.all(12),
+                                    height: 80,
+                                    width: 80,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.white
+                                    ),
+                                    child: ClipRRect(
+                                      child: Image.asset(products[selIndex]['img']),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             )
                           ],
                         )
